@@ -3,12 +3,60 @@
 {% block main %}
 
     <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
-    <h1 class="mb-3">Form</h1>
-
+    <h1 class="mb-3">Hogwarts Quidditch Signup</h1>
+    <br>
     <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
-    <form action="/form" method="post">
-
-        <!-- TODO -->
+    <form action="/form" method="post" class="needs-validation" novalidate>
+        <div class="form-group row">
+            <label for="fname" class="col-md-2 col-form-label">First Name:</label>
+            <div class="col-md-3">
+                <input name="fname" type="text" class="form-control" placeholder="First Name" id="fname" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="lname" class="col-md-2 col-form-label">Last Name:</label>
+            <div class="col-md-3">
+                <input name="lname" type="text" class="form-control" placeholder="Last Name" id="lname" required>
+            </div>
+        </div>
+        <br>
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-md-2 pt-0">House:</legend>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        <input type="radio" id="house1" name="house" class="form-check-input" value="Gryffindor" required>
+                        <label class="form-check-label" for="house1">Gryffindor</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="house2" name="house" class="form-check-input" value="Hufflepuff">
+                        <label class="form-check-label" for="house2">Hufflepuff</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="house3" name="house" class="form-check-input" value="Ravenclaw">
+                        <label class="form-check-label" for="house3">Ravenclaw</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="house4" name="house" class="form-check-input" value="Slytherin">
+                        <label class="form-check-label" for="house4">Slytherin</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <br>
+        <div class="form-group row">
+            <div class="col-md-2">Position:</div>
+            <div class="col-md-3 form-check">
+                <select name="position" class="custom-select" required>
+                    <option selected disabled value="">Position</option>
+                    <option value="Chaser">Chaser</option>
+                    <option value="Beater">Beater</option>
+                    <option value="Keeper">Keeper</option>
+                    <option value="Seeker">Seeker</option>
+                </select>
+            </div>
+        </div>
+        <br>
 
         <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
         <button class="btn btn-primary" type="submit">Submit</button>
@@ -17,7 +65,24 @@
 
     <script>
 
-        /* TODO */
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
 
     </script>
 
