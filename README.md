@@ -2,4 +2,4 @@
 CS50x Problem Set 7
 
 ## Full details availible at
-https://docs.cs50.net/2019/x/psets/7/index.html
+https://cs50.harvard.edu/x/2021/weeks/7/
